@@ -24,12 +24,12 @@ export const Login = () => {
     <>
       <div className={styles.loginWrapper}>
         <div className={styles.loginDiv}>
-          <LoginImage>
-            <ImageWrapper
+          <div className={styles.loginImage}>
+            <img
               src="https://tse3.mm.bing.net/th?id=OIP.W4JwOf9fsiNIwPhyOyHfnQHaE4&pid=Api&P=0"
               alt="FACE PREP"
             />
-          </LoginImage>
+          </div>
           <h2> Start Your Journey</h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.formWrapper}>
@@ -62,14 +62,6 @@ export const Login = () => {
     </>
   );
 };
-
-const LoginImage = styled.div`
-  flex: 2;
-`;
-const ImageWrapper = styled.img`
-  width: 100%;
-  height: 100%;
-`;
 
 
 const InsideDiv = styled.div`
