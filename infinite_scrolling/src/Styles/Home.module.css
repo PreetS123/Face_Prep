@@ -9,6 +9,17 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
                 rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
+.logoutbtn{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: maroon;
+    color: white;
+    border:none;
+    font-weight: 900;
+    font-size: 20px;
+    padding: 0.5%;
+}
 
 .userbody{
     display: flex;
