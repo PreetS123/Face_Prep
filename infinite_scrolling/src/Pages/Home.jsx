@@ -1,6 +1,7 @@
 import React, { useState, useEffect,useRef } from "react";
 import styles from "../Styles/Home.module.css";
 import { nanoid } from "nanoid";
+import { Loader } from "../Components/Loder";
 
 export const Home = () => {
   const [users, setUsers] = useState([]);
@@ -11,13 +12,13 @@ export const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://randomuser.me/api/?page=${page}&results=25`)
+    fetch(`https://randomuser.me/api/?page=${page}&results=15`)
       .then((res) => res.json())
-      .then((res) => {
+      .then((data) => {
         setUsers(prev=>{
-          return [...new Set([...prev,...res.results.map(user=>user)])]
+          return [...new Set([...prev,...data.results.map(user=>user)])]
         });
-        setMore(res.results.length > 0);
+        setMore(data.results.length > 0);
         setLoading(false);
         setError(false);
       })
@@ -27,6 +28,7 @@ export const Home = () => {
         setError(true);
       });
   }, [page]);
+  console.log(page)
 
    const observer=useRef();
    const bottomTipRef=React.useCallback(node=>{
@@ -52,7 +54,7 @@ export const Home = () => {
         <div className={styles.userbody}>
           {users?.map((user) => {
             return (
-              <div className={styles.onecard} key={nanoid()}>
+              <div className={styles.onecard} key={nanoid()} ref={bottomTipRef}>
                 <div className={styles.userPicture}>
                   <img src={user.picture.thumbnail} alt={user.id.name} />
                 </div>
@@ -73,7 +75,7 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className={styles.loader}>{loading && <h1>Loader</h1>}</div>
+      <div className={styles.loader}>{loading && <Loader/>}</div>
       <div className={styles.error}>{error && <h1>Error</h1>}</div>
     </>
   );
