@@ -1,9 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import styles from "../Styles/Login.module.css";
+import {useNavigate} from 'react-router-dom';
 
 export const Login = () => {
-  const handleSubmit = () => {};
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(username==='foo' && password==='bar'){
+        localStorage.setItem('auth','true');
+        alert('Welcome to the world of scrolling')
+        navigate('/home');
+    }
+    else{
+        setError(true);
+    }
+  };
 
   return (
     <>
@@ -23,7 +38,7 @@ export const Login = () => {
                   <label htmlFor="email">Email</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <InputWrapper type="email" name="email" />
+                  <input className={styles.inputWrapper}  type="email" name="email" onChange={(e)=>setUsername(e.target.value)} />
                 </InsideDiv>
               </div>
 
@@ -32,12 +47,13 @@ export const Login = () => {
                   <label htmlFor="password">Password</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <InputWrapper type="password" name="password" />
+                  <input className={styles.inputWrapper} type="password" name="password" onChange={(e)=>setPassword(e.target.value)} />
                 </InsideDiv>
               </div>
-
+               
+               {error && <p className={styles.error}>Invalid UserName or Password</p>}
               <FormButtonDiv>
-                <ButtonDiv type="submit">LOGIN</ButtonDiv>
+                <button className={styles.btn} type="submit">LOGIN</button>
               </FormButtonDiv>
             </div>
           </form>
@@ -63,23 +79,13 @@ const InsideDiv = styled.div`
 `;
 
 const InputWrapper = styled.input`
+  
   height: 30px;
   padding: 1% 2%;
   border-radius: 10px;
   border: 2px solid #1204C3;
 `;
 const FormButtonDiv = styled.div`
-  width: 100%;
+  width: 70%;
 `;
 
-const ButtonDiv = styled.button`
-  width: 100%;
-  height: 40px;
-  background-color: #1204C3;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 1%;
-`;
