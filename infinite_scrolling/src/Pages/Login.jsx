@@ -35,10 +35,10 @@ export const Login = () => {
             <div className={styles.formWrapper}>
               <div className={styles.formDiv}>
                 <InsideDiv>
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="username">UserName</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <input className={styles.inputWrapper}  type="email" name="email" onChange={(e)=>setUsername(e.target.value)} />
+                  <input className={styles.inputWrapper}  type="text" name="username" onChange={(e)=>setUsername(e.target.value)} />
                 </InsideDiv>
               </div>
 
