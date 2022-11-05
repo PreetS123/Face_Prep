@@ -65,15 +65,16 @@ export const Home = () => {
                   <img src={user.picture.thumbnail} alt={user.id.name} />
                 </div>
                 <div className={styles.userName}>
-                  <p>
-                  <span>Name:</span> {user.name.first} {user.name.last}
+                <span>Name:</span>
+                 <p>
+                   {user.name.first} {user.name.last}
                   </p>
                 </div>
                 <div className={styles.userEmail}>
-                  <p><span>Email:</span> {user.email}</p>
+                <span>Email:</span> <p> {user.email}</p>
                 </div>
                 <div className={styles.userPhone}>
-                  <p><span>Mobile:</span> {user.phone}</p>
+                <span>Mobile:</span> <p> {user.phone}</p>
                 </div>
               </div>
             );
