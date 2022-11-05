@@ -78,13 +78,6 @@ const InsideDiv = styled.div`
   font-size: 15px;
 `;
 
-const InputWrapper = styled.input`
-  
-  height: 30px;
-  padding: 1% 2%;
-  border-radius: 10px;
-  border: 2px solid #1204C3;
-`;
 const FormButtonDiv = styled.div`
   width: 70%;
 `;
