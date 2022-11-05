@@ -13,7 +13,7 @@ export const Loader = () => {
     }, 1000);
   }, []);
 
-
+console.log(loader)
   return (
     <RotatingLines
       strokeColor='grey'
