@@ -81,10 +81,17 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-size: 10px!important;
     
+ }
+ .formDiv label{
+   font-size: 12px;
  }
  .inputWrapper{
     width: 100%;
+    height: 20px;
+ }
+ .btn{
+   font-size: 12px;
+   height: 25px;
  }
 }
