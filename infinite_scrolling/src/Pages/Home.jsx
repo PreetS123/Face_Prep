@@ -2,8 +2,10 @@ import React, { useState, useEffect,useRef } from "react";
 import styles from "../Styles/Home.module.css";
 import { nanoid } from "nanoid";
 import { Loader } from "../Components/Loder";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate= useNavigate();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -43,13 +45,17 @@ export const Home = () => {
    },[loading,more])
 
   console.log(users);
-
+   
+  const handleLogout=()=>{
+    localStorage.removeItem('auth');
+    navigate('/')
+  }
   return (
     <>
       <div className={styles.container}>
         <div className={styles.navdiv}>
           <h1>Face Prep</h1>
-          <button>Logout</button>
+          <button className={styles.logoutbtn} onClick={handleLogout}>Logout</button>
         </div>
         <div className={styles.userbody}>
           {users?.map((user) => {
